@@ -10,16 +10,7 @@ import { StatusService } from './status/status.service';
 import { StatusModule } from './status/status.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-      type: 'postgres', // or mysql
-      host: 'localhost',
-      port: 5432,
-      username: 'onelifemobiledev',
-      password: '',
-      database: 'okol_db',
-      autoLoadEntities: true,
-      synchronize: true,
-    }),PrismaModule,ScheduleModule.forRoot(),AuthModule, UserModule, StatusModule],
+  imports: [PrismaModule,ScheduleModule.forRoot(),AuthModule, UserModule, StatusModule],
   providers: [TasksService, UserService, StatusService],
 })
 export class AppModule {}
