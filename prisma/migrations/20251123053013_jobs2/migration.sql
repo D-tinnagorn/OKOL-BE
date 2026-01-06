@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Jobs" ALTER COLUMN "colorCode" SET DATA TYPE BIGINT;

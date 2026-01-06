@@ -15,11 +15,52 @@ model User {
   social    String[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  jobs      Jobs[]
 }
 
 model Status {
   id        Int      @id @default(autoincrement())
   status    String
+  key       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  jobs      Jobs[]
+}
+
+model Platform {
+  id        Int      @id @default(autoincrement())
+  platform  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  jobs      Jobs[]
+}
+
+model Jobs {
+  id         Int        @id @default(autoincrement())
+  name       String
+  brandName  String
+  createTerm String
+  deadline   String
+  budget     Int
+  form       Boolean
+  seeding    Boolean
+  detail     String
+  storyLine  String?
+  statusId   Int
+  status     Status     @relation(fields: [statusId], references: [id])
+  platforms  Platform[]
+  colorCode  BigInt
+  userId     Int
+  user       User       @relation(fields: [userId], references: [id])
+}
+model Todo {
+  id         String   @id @default(uuid())
+  title      String
+  completed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id   String @id @default(uuid())
+  name String
 }

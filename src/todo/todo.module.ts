@@ -1,0 +1,14 @@
+// todo.module.ts
+import { Module } from '@nestjs/common';
+import { TodoController } from './todo.controller';
+import { TodoService } from './todo.service';
+import { PrismaModule } from '../prisma/prisma.module';
+import { TodoGateway } from './todo.gateway';
+
+@Module({
+  imports: [PrismaModule],
+  controllers: [TodoController],
+  providers: [TodoService, TodoGateway],
+  exports: [TodoService, TodoGateway], 
+})
+export class TodoModule {}

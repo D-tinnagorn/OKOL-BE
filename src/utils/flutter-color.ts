@@ -1,0 +1,12 @@
+export const flutterColors: number[] = [
+  0xFFF7DDE2, 
+  0xFFF6F1D3, 
+  0xFFD8EAF5, 
+  0xFFE8F6EF, 
+  0xFFF4E7FB, 
+  0xFFFFE9D6, 
+  0xFFE3F2F8, 
+  0xFFF9F5EC,
+  0xFFEDE7F6, 
+  0xFFFDECEE,
+];

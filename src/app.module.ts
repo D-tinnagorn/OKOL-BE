@@ -8,10 +8,24 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PrismaModule } from './prisma/prisma.module';
 import { StatusService } from './status/status.service';
 import { StatusModule } from './status/status.module';
+import { PlatformService } from './platform/platform.service';
+import { PlatformController } from './platform/platform.controller';
+import { PlatformModule } from './platform/platform.module';
+import { JobsModule } from './jobs/jobs.module';
+import { JobsService } from './jobs/jobs.service';
+import { JobsController } from './jobs/jobs.controller';
+import { TodoService } from './todo/todo.service';
+import { TodoController } from './todo/todo.controller';
+import { TodoModule } from './todo/todo.module';
+import { CategoryService } from './category/category.service';
+import { CategoryController } from './category/category.controller';
+import { CategoryModule } from './category/category.module';
+
 
 @Module({
-  imports: [TypeOrmModule.forRoot({
-      type: 'postgres', // or mysql
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
       host: 'localhost',
       port: 5432,
       username: 'onelifemobiledev',
@@ -19,7 +33,17 @@ import { StatusModule } from './status/status.module';
       database: 'okol_db',
       autoLoadEntities: true,
       synchronize: true,
-    }),PrismaModule,ScheduleModule.forRoot(),AuthModule, UserModule, StatusModule],
-  providers: [TasksService, UserService, StatusService],
+    }),
+    PrismaModule,
+    ScheduleModule.forRoot(),
+
+    AuthModule,
+    UserModule,
+    StatusModule,
+    PlatformModule,
+    JobsModule,
+    TodoModule,
+    CategoryModule,
+  ],
 })
 export class AppModule {}
